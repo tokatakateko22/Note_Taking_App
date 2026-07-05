@@ -1,0 +1,83 @@
+{
+  "total": 15,
+  "passes": 10,
+  "pass_rate": 66.66666666666666,
+  "mode": "live",
+  "results": [
+    {
+      "name": "Create basic note",
+      "pass": true,
+      "reason": "OK"
+    },
+    {
+      "name": "Create note with tags",
+      "pass": true,
+      "reason": "OK"
+    },
+    {
+      "name": "Search by keyword",
+      "pass": true,
+      "reason": "OK"
+    },
+    {
+      "name": "Search by tag",
+      "pass": true,
+      "reason": "OK"
+    },
+    {
+      "name": "Search by date range",
+      "pass": true,
+      "reason": "OK"
+    },
+    {
+      "name": "Update note body",
+      "pass": true,
+      "reason": "OK"
+    },
+    {
+      "name": "Delete note",
+      "pass": false,
+      "reason": "Expected tool 'delete_note' to be called at least 2 time(s). Called: ['create_note', 'delete_note', 'update_note']"
+    },
+    {
+      "name": "Ambiguous search",
+      "pass": false,
+      "reason": "Expected tool 'search_notes' to be called at least 1 time(s). Called: ['create_note', 'create_note', 'delete_note']"
+    },
+    {
+      "name": "Follow-up that note",
+      "pass": true,
+      "reason": "OK"
+    },
+    {
+      "name": "Delete non-existent note",
+      "pass": true,
+      "reason": "OK"
+    },
+    {
+      "name": "Search returns 0 results",
+      "pass": true,
+      "reason": "OK"
+    },
+    {
+      "name": "Refuse deletion without confirmation",
+      "pass": true,
+      "reason": "OK"
+    },
+    {
+      "name": "Summarise tagged notes",
+      "pass": false,
+      "reason": "Expected tool 'search_notes' to be called at least 1 time(s). Called: ['create_note', 'create_note', 'answer_question']"
+    },
+    {
+      "name": "Contradiction detection",
+      "pass": false,
+      "reason": "Expected tool 'search_notes' to be called at least 1 time(s). Called: ['create_note', 'create_note', 'answer_question']"
+    },
+    {
+      "name": "Update via follow-up",
+      "pass": false,
+      "reason": "Expected DB state assertion failed."
+    }
+  ]
+}

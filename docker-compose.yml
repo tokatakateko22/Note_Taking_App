@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  notes-agent:
+    build: .
+    container_name: notes-agent
+    volumes:
+      - ./data:/data
+    env_file:
+      - .env
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    command: python -m src.cli
+
+  mcp-server:
+    build: .
+    container_name: notes-mcp-server
+    volumes:
+      - ./data:/data
+    env_file:
+      - .env
+    command: mcp run src/mcp_server.py
+    # To expose MCP via SSE (Server-Sent Events) over HTTP:
+    # ports:
+    #   - "8000:8000"
+    # command: mcp run src/mcp_server.py --transport sse --port 8000
